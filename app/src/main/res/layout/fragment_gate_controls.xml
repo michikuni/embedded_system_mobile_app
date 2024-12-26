@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context =".ui.gate_controls.GateControlsFragment"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/text_gate_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Door Controls"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Instruction -->
+    <TextView
+        android:id="@+id/text_gate_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click to open or close the door"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/text_gate_controls"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Door 1 Button -->
+    <Button
+        android:id="@+id/button_door_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="DOOR 1: CLOSED"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_gate_instruction"
+        app:layout_constraintEnd_toStartOf="@id/button_door_2"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Door 2 Button -->
+    <Button
+        android:id="@+id/button_door_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="DOOR 2: OPEN"
+        android:backgroundTint="@color/blue"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@id/button_door_1"
+        app:layout_constraintTop_toBottomOf="@id/text_gate_instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

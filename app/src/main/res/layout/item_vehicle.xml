@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Serial Number -->
+    <TextView
+        android:id="@+id/text_serial"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        android:gravity="center" />
+
+    <!-- License Plate -->
+    <TextView
+        android:id="@+id/text_license_plate"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        android:gravity="center"/>
+
+    <!-- Entry Time -->
+    <TextView
+        android:id="@+id/text_entry_time"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        android:gravity="center" />
+
+    <!-- Exit Time -->
+    <TextView
+        android:id="@+id/text_exit_time"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        android:gravity="center" />
+
+    <!-- Actions -->
+    <LinearLayout
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_view_image"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="Image"
+            android:textSize="8sp" />
+
+        <Button
+            android:id="@+id/button_exit"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Exit"
+            android:textSize="8sp" />
+    </LinearLayout>
+</TableRow>
+
+

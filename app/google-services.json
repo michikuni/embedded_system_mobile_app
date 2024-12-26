@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "92325678928",
+    "firebase_url": "https://fir-cloud-9b508-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fir-cloud-9b508",
+    "storage_bucket": "fir-cloud-9b508.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92325678928:android:40035596bd6105fa702655",
+        "android_client_info": {
+          "package_name": "com.company.smart_car_park"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92325678928-ksdbqlmlat6h6ep20mfu9ajken6gsphq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxaFguAVJt7HE7YqIM-VtrZOlL3EDrlug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92325678928-ksdbqlmlat6h6ep20mfu9ajken6gsphq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92325678928:android:9d4ba54d9ee8f48f702655",
+        "android_client_info": {
+          "package_name": "com.company.smartcarpark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92325678928-ksdbqlmlat6h6ep20mfu9ajken6gsphq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxaFguAVJt7HE7YqIM-VtrZOlL3EDrlug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92325678928-ksdbqlmlat6h6ep20mfu9ajken6gsphq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
