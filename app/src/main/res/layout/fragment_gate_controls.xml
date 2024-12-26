@@ -34,7 +34,7 @@
 
     <!-- Door 1 Button -->
     <Button
-        android:id="@+id/button_door_1"
+        android:id="@+id/button_gate_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="DOOR 1: CLOSED"
@@ -42,19 +42,19 @@
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_gate_instruction"
-        app:layout_constraintEnd_toStartOf="@id/button_door_2"
+        app:layout_constraintEnd_toStartOf="@id/button_gate_2"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="16dp" />
 
     <!-- Door 2 Button -->
     <Button
-        android:id="@+id/button_door_2"
+        android:id="@+id/button_gate_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="DOOR 2: OPEN"
         android:backgroundTint="@color/blue"
         android:textColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="@id/button_door_1"
+        app:layout_constraintStart_toEndOf="@id/button_gate_1"
         app:layout_constraintTop_toBottomOf="@id/text_gate_instruction"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="8dp"

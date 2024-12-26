@@ -21,8 +21,8 @@ class GateControlsFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_gate_controls, container, false)
 
-        val buttonDoor1: Button = root.findViewById(R.id.button_door_1)
-        val buttonDoor2: Button = root.findViewById(R.id.button_door_2)
+        val buttonDoor1: Button = root.findViewById(R.id.button_gate_1)
+        val buttonDoor2: Button = root.findViewById(R.id.button_gate_2)
 
         gateControlsViewModel.door1State.observe(viewLifecycleOwner, Observer { isOpen ->
             buttonDoor1.text = if (isOpen) "DOOR 1: OPEN" else "DOOR 1: CLOSED"
