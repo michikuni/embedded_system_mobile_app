@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="16dp">
-
     <TextView
         android:id="@+id/text_available_spaces"
         android:layout_width="wrap_content"
@@ -13,23 +13,22 @@
         android:text="Available Spaces"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="20dp"
         android:progress="0"
         android:max="100"
         android:indeterminate="false"
         android:progressTint="@color/blue"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toBottomOf="@id/text_available_spaces"
+        android:layout_marginBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_available_spaces"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
@@ -39,20 +38,8 @@
         android:text="6% occupied"
         android:textSize="14sp"
         android:gravity="center"
-        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progress_bar"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewHome"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_occupied_percent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

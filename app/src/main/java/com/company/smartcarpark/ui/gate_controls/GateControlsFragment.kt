@@ -20,7 +20,7 @@ class GateControlsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_gate_controls, container, false)
-
+        gateControlsViewModel.fetchStatus()
         val buttonDoor1: Button = root.findViewById(R.id.button_gate_1)
         val buttonDoor2: Button = root.findViewById(R.id.button_gate_2)
 

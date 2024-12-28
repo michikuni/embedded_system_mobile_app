@@ -14,6 +14,7 @@ class HomeViewModel : ViewModel() {
     private val _vehicles_data_latest = MutableLiveData<List<Vehicle>>()
     val vehicles_data_latest: LiveData<List<Vehicle>> get() = _vehicles_data_latest
 
+
     fun fetchVehiclesData(){
         val database = FirebaseDatabase.getInstance()
         val ref = database.getReference("vehicle_last_action/infor")

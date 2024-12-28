@@ -39,7 +39,7 @@ class ParkedVehiclesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = AllVehiclesAdapter(emptyList())
+        adapter = AllVehiclesAdapter(emptyList(), requireContext())
         binding.recyclerViewParkedVehicles.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = this@ParkedVehiclesFragment.adapter
