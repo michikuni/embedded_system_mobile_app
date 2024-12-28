@@ -12,6 +12,7 @@ import com.company.smartcarpark.data.model.Vehicle
 
 class VehiclesAdapter(private var vehicles: List<Vehicle>) :
     RecyclerView.Adapter<VehiclesAdapter.VehicleViewHolder>() {
+    val ServerUrl: String = "https://ae47-14-162-134-8.ngrok-free.app"
     // ViewHolder để ánh xạ các thành phần giao diện của từng mục
     class VehicleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val licensePlateTextView: TextView = itemView.findViewById(R.id.text_latest_license_plate_render)
@@ -35,7 +36,7 @@ class VehiclesAdapter(private var vehicles: List<Vehicle>) :
         holder.exitTimeTextView.text = vehicle.exitTime
         // Sử dụng thư viện như Glide hoặc Picasso để tải ảnh
         Glide.with(holder.imageView.context)
-            .load("https://ae47-14-162-134-8.ngrok-free.app/static/images/455-300x300.jpg")
+            .load("${ServerUrl}${vehicle.imageSrc}")
             .into(holder.imageView)
     }
     fun updateData(newVehicles: List<Vehicle>) {

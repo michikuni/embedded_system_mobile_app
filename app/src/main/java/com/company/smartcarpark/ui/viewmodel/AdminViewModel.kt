@@ -26,7 +26,7 @@ class AdminViewModel : ViewModel(){
                 for (adminSnapshot in snapshot.children){
                     val admin = adminSnapshot.getValue(Admin::class.java)
                     admin?.let {
-                        adminList.add(it)
+                        adminList.add(admin)
                     }
                 }
                 _admin_data.value = adminList

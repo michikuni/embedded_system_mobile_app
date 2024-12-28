@@ -2,6 +2,7 @@ package com.company.smartcarpark.ui.view
 
 import android.os.Bundle
 import android.view.Menu
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
@@ -13,24 +14,28 @@ import androidx.navigation.ui.setupWithNavController
 import com.company.smartcarpark.R
 import com.company.smartcarpark.databinding.ActivityMainBinding
 import com.company.smartcarpark.ui.viewmodel.AdminViewModel
+import com.company.smartcarpark.ui.viewmodel.LoginViewModel
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var adminViewModel: AdminViewModel
+    private lateinit var adminViewModel: LoginViewModel
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adminViewModel = ViewModelProvider(this).get(AdminViewModel::class.java)
+        adminViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         // Set up ViewBinding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adminViewModel.fetchAdminData()
+        // Nhận thông tin từ Intent
+        val adminName = intent.getStringExtra("admin_name")
+        val adminUsername = intent.getStringExtra("admin_username")
+
         // Set up the Floating Action Button (FAB)
         binding.appBarMain.fab.setOnClickListener { view ->
             // Example action for FAB (you can modify this as needed)
@@ -53,6 +58,13 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val headerView = navView.getHeaderView(0)
+        val adminNameTextView: TextView = headerView.findViewById(R.id.name)
+        val adminUsernameTextView: TextView = headerView.findViewById(R.id.username)
+
+        adminNameTextView.text = adminName ?: "No name"
+        adminUsernameTextView.text = adminUsername ?: "No username"
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -27,6 +27,7 @@ import com.bumptech.glide.request.target.Target
 
 class AllVehiclesAdapter (private var vehicles: List<Vehicle>, private val context: Context) :
     RecyclerView.Adapter<AllVehiclesAdapter.VehicleViewHolder>() {
+        val ServerUrl: String = "https://ae47-14-162-134-8.ngrok-free.app"
     // ViewHolder để ánh xạ các thành phần giao diện của từng mục
     class VehicleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val numberIndex: TextView = itemView.findViewById(R.id.text_serial)
@@ -53,7 +54,7 @@ class AllVehiclesAdapter (private var vehicles: List<Vehicle>, private val conte
         holder.entryTimeTextView.text = vehicle.entryTime
         holder.exitTimeTextView.text = vehicle.exitTime
         holder.buttonViewImage.setOnClickListener {
-            val imageSrc = "https://ae47-14-162-134-8.ngrok-free.app${vehicle.imageSrc}"
+            val imageSrc = "${ServerUrl}${vehicle.imageSrc}"
             showImageDialog(imageSrc)
         }
         holder.buttonExit.setOnClickListener {
@@ -117,23 +118,6 @@ class AllVehiclesAdapter (private var vehicles: List<Vehicle>, private val conte
 
         dialog.show()
     }
-//    private fun showImageDialog(imageSrc: String, holder: VehicleViewHolder) {
-//        val context = holder.itemView.context
-//        val dialog = AlertDialog.Builder(context)
-//        val imageView = View.inflate(context, R.layout.dialog_image, null)
-//        val image = imageView.findViewById<ImageView>(R.id.dialog_image_view)
-//        Glide.with(context)
-//            .load(imageSrc)
-//            .placeholder(R.drawable.placeholder)
-//            .error(R.drawable.error_image)
-//            .into(image)
-//        dialog.setView(imageView)
-//        dialog.setPositiveButton("Close"){ dialogInterface, _ ->
-//            dialogInterface.dismiss()
-//        }
-//        dialog.show()
-//
-//    }
 
     fun updateAllData(newVehicles: List<Vehicle>) {
         vehicles = newVehicles // Cập nhật danh sách mới

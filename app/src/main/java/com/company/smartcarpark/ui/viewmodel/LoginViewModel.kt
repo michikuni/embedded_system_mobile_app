@@ -12,22 +12,22 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class LoginViewModel : ViewModel(){
-    private val _login_data = MutableLiveData<List<Admin>>()
-    val login_data: LiveData<List<Admin>> get() = _login_data
+    private val _login_data = MutableLiveData<Admin?>()
+    val login_data: LiveData<Admin?> get() = _login_data
 
-    fun fetchLoginData(){
+    fun fetchLoginData(username: String, password: String){
         val database = Firebase.database.reference
         val ref = database.child("admin")
-        ref.addValueEventListener(object : ValueEventListener {
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val adminList = mutableListOf<Admin>()
                 for (adminSnapshot in snapshot.children){
                     val admin = adminSnapshot.getValue(Admin::class.java)
-                    if (admin != null){
-                        adminList.add(admin)
+                    if (admin?.username == username && admin.password == password){
+                        _login_data.value = admin
+                        return
                     }
                 }
-                _login_data.value = adminList
+                _login_data.value = null
             }
 
             override fun onCancelled(error: DatabaseError) {
