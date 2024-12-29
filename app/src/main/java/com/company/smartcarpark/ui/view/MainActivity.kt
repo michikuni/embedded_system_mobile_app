@@ -13,7 +13,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.company.smartcarpark.R
 import com.company.smartcarpark.databinding.ActivityMainBinding
-import com.company.smartcarpark.ui.viewmodel.AdminViewModel
 import com.company.smartcarpark.ui.viewmodel.LoginViewModel
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar

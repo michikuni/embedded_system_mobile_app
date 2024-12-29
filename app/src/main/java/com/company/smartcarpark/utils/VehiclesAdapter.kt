@@ -12,7 +12,16 @@ import com.company.smartcarpark.data.model.Vehicle
 
 class VehiclesAdapter(private var vehicles: List<Vehicle>) :
     RecyclerView.Adapter<VehiclesAdapter.VehicleViewHolder>() {
-    val ServerUrl: String = "https://ae47-14-162-134-8.ngrok-free.app"
+    private var ServerUrl: String? = null
+    private val serverRepository = ServerRepository()
+
+    init {
+        serverRepository.server_url.observeForever { url ->
+            ServerUrl = url
+        }
+
+        serverRepository.fetchServerUrl()
+    }
     // ViewHolder để ánh xạ các thành phần giao diện của từng mục
     class VehicleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val licensePlateTextView: TextView = itemView.findViewById(R.id.text_latest_license_plate_render)
