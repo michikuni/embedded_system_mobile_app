@@ -28,7 +28,6 @@ class AvailableVehiclesAdapter (private var vehicles: List<Vehicle>) :
     // Gắn dữ liệu từ danh sách vào ViewHolder
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: VehicleViewHolder, position: Int) {
-        val vehicle = vehicles[position]
         holder.availableSpace.text = "Available Spaces ${100 - vehicles.size}"
         holder.occupied_percent.text = "${vehicles.size} % occupied"
         holder.progressBar.progress = vehicles.size

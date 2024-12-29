@@ -22,8 +22,12 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import android.app.AlertDialog
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.request.target.Target
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class AllVehiclesAdapter (private var vehicles: List<Vehicle>, private val context: Context) :
     RecyclerView.Adapter<AllVehiclesAdapter.VehicleViewHolder>() {
@@ -46,13 +50,14 @@ class AllVehiclesAdapter (private var vehicles: List<Vehicle>, private val conte
         return VehicleViewHolder(view)
     }
     // Gắn dữ liệu từ danh sách vào ViewHolder
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: VehicleViewHolder, position: Int) {
         val vehicle = vehicles[position]
         holder.numberIndex.text = (position +1).toString()
         holder.licensePlateTextView.text = vehicle.licensePlate
-        holder.entryTimeTextView.text = vehicle.entryTime
-        holder.exitTimeTextView.text = vehicle.exitTime
+        holder.entryTimeTextView.text = convertDateFormat(vehicle.entryTime)
+        holder.exitTimeTextView.text = convertDateFormat(vehicle.exitTime)
         holder.buttonViewImage.setOnClickListener {
             val imageSrc = "${ServerUrl}${vehicle.imageSrc}"
             showImageDialog(imageSrc)
@@ -60,6 +65,26 @@ class AllVehiclesAdapter (private var vehicles: List<Vehicle>, private val conte
         holder.buttonExit.setOnClickListener {
             val exitTime = getCurrentTime()
             updateExitTimeToFirebase(vehicle.licensePlate, exitTime)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun convertDateFormat(dateString: String): String {
+        // Định dạng đầu vào
+        return if (dateString.contains('T')) {
+            // Định dạng đầu vào với phần microseconds
+            val inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+            // Chuyển đổi chuỗi thành LocalDateTime
+            val dateTime = LocalDateTime.parse(dateString, inputFormatter)
+
+            // Định dạng đầu ra không có phần microseconds
+            val outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+
+            // Trả về chuỗi sau khi định dạng lại
+            dateTime.format(outputFormatter)
+        } else {
+            // Nếu chuỗi đã có định dạng yyyy-MM-dd HH:mm:ss thì giữ nguyên
+            dateString
         }
     }
 

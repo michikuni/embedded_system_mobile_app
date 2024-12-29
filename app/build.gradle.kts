@@ -37,6 +37,15 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    signingConfigs {
+        create("release") {
+            storeFile = file("D:/Embedded_Report/SmartCarPark/new-release-key.jks")
+            storePassword = "dkmthangcho123"
+            keyAlias = "mykey"
+            keyPassword = "dkmthangcho123"
+        }
+    }
+
 }
 
 dependencies {

@@ -23,13 +23,28 @@ class GateControlsFragment : Fragment() {
         gateControlsViewModel.fetchStatus()
         val buttonDoor1: Button = root.findViewById(R.id.button_gate_1)
         val buttonDoor2: Button = root.findViewById(R.id.button_gate_2)
+        val buttonCheckingStatus = root.findViewById<Button>(R.id.button_status)
 
         gateControlsViewModel.door1State.observe(viewLifecycleOwner, Observer { isOpen ->
-            buttonDoor1.text = if (isOpen) "DOOR 1: OPEN" else "DOOR 1: CLOSED"
+            buttonDoor1.text = if (isOpen) "GATE 1: OPEN" else "GATE 1: CLOSED"
         })
 
         gateControlsViewModel.door2State.observe(viewLifecycleOwner, Observer { isOpen ->
-            buttonDoor2.text = if (isOpen) "DOOR 2: OPEN" else "DOOR 2: CLOSED"
+            if (isOpen == true){
+                buttonDoor2.text = "GATE 2: OPEN"
+            }
+            else{
+                buttonDoor2.text = "GATE 2: CLOSED"
+            }
+        })
+
+        gateControlsViewModel.checking_status.observe(viewLifecycleOwner, Observer{ checkingStatus ->
+            if (checkingStatus == "true"){
+                buttonCheckingStatus.text = "CHECKING STATUS: TRUE"
+            }
+            if (checkingStatus == "false") {
+                buttonCheckingStatus.text = "CHECKING STATUS: FALSE"
+            }
         })
 
         buttonDoor1.setOnClickListener {
@@ -40,6 +55,9 @@ class GateControlsFragment : Fragment() {
             gateControlsViewModel.toggleDoor2()
         }
 
+        buttonCheckingStatus.setOnClickListener {
+            gateControlsViewModel.checkingStatus()
+        }
         return root
     }
 }
