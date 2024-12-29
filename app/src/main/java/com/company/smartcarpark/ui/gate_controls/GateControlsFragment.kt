@@ -26,15 +26,15 @@ class GateControlsFragment : Fragment() {
         val buttonCheckingStatus = root.findViewById<Button>(R.id.button_status)
 
         gateControlsViewModel.door1State.observe(viewLifecycleOwner, Observer { isOpen ->
-            buttonDoor1.text = if (isOpen) "GATE 1: OPEN" else "GATE 1: CLOSED"
+            buttonDoor1.text = if (isOpen) "GATE IN: OPEN" else "GATE IN: CLOSED"
         })
 
         gateControlsViewModel.door2State.observe(viewLifecycleOwner, Observer { isOpen ->
             if (isOpen == true){
-                buttonDoor2.text = "GATE 2: OPEN"
+                buttonDoor2.text = "GATE OUT: OPEN"
             }
             else{
-                buttonDoor2.text = "GATE 2: CLOSED"
+                buttonDoor2.text = "GATE OUT: CLOSED"
             }
         })
 
